@@ -34,11 +34,14 @@ public class Client {
     @Column(nullable = false)
     private Date dateOfBirth;
 
+    @OneToOne
+    private Portfolio portfolio;
+
     protected Client() {
 
     }
 
-    public Client (String firstName, String lastName, Advisor advisor, String address, String phone, String email, Date dateOfBirth) {
+    public Client (String firstName, String lastName, Advisor advisor, String address, String phone, String email, Date dateOfBirth, Portfolio portfolio) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.advisor = advisor;
@@ -46,6 +49,7 @@ public class Client {
         this.phone = phone;
         this.email = email;
         this.dateOfBirth = dateOfBirth;
+        this.portfolio = portfolio;
     }
 
     public Long getClientId() {
@@ -106,6 +110,14 @@ public class Client {
 
     public void setDateOfBirth (Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Portfolio getPortfolio() {
+        return portfolio;
+    }
+
+    public void setPortfolio(Portfolio portfolio) {
+        this.portfolio = portfolio;
     }
 
 }
