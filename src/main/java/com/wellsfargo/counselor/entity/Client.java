@@ -13,7 +13,7 @@ public class Client {
     private long clientId;
 
     @ManyToOne
-    @JoinColumn(name = "advisorId")
+    @JoinColumn(nullable = false)
     private Advisor advisor;
 
     @Column(nullable = false)
@@ -46,6 +46,10 @@ public class Client {
         this.phone = phone;
         this.email = email;
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Long getClientId() {
+        return clientId;
     }
 
     public Advisor getAdvisor() {
